@@ -3,11 +3,13 @@
 /** @typedef {import('express')} express */
 /** @typedef {import('cors')} cors */
 /** @typedef {import('body-parser')} bodyParser */
+/** @typedef {import('sequelize')} Sequelize */
 /** @typedef {import('morgan')} morgan */
 
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const Sequelize = require('sequelize');
 const morgan = require('morgan');
 
 /** @typedef {import('./routes/ArticleRoute.js')} ArticleRoute */
@@ -23,6 +25,7 @@ class App {
   constructor() {
     this.app = express();
     this._port = process.env.PORT || 3000;
+    this._databaseConnection = 'mysql://root:rahasia@database:3306/node-app';
     this._article = new ArticleRoute();
     this._init();
     this._listen();
@@ -37,6 +40,7 @@ class App {
     this._setUpCors();
     this._setUpBodyParser();
     this._setUpMorgan();
+    this._setUpSequelize();
     this._setUpRoutePath();
   }
 
@@ -57,6 +61,19 @@ class App {
   _setUpBodyParser() {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
+  }
+
+  /**
+   * Set up sequelize connection
+   *
+   * @returns {void}
+   */
+  _setUpSequelize() {
+    const sequelize = new Sequelize(this._databaseConnection);
+    sequelize
+      .authenticate()
+      .then(() => console.log('Database is connected'))
+      .catch(err => console.error(err));
   }
 
   /**
