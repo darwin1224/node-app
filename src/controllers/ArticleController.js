@@ -31,6 +31,22 @@ class ArticleController {
       return res.status(400).json(new DataNotFoundException(err.message));
     }
   }
+
+  /**
+   * Get resource by id in storage
+   *
+   * @param {Request} req
+   * @param {Response} res
+   * @returns {Promise<Response>}
+   */
+  async show(req, res) {
+    try {
+      const data = await this._article.getArticleById(Number(req.params.id));
+      return res.json(data);
+    } catch (err) {
+      return res.status(404).json(new DataNotFoundException(err.message));
+    }
+  }
 }
 
 module.exports = ArticleController;

@@ -21,7 +21,15 @@ class ArticleRoute {
    * @returns {void}
    */
   routes(app) {
+    /**
+     * GET /article
+     */
     app.get('/article', this._article.index.bind(this._article));
+
+    /**
+     * GET /article/:id
+     */
+    app.get('/article/:id', this._article.show.bind(this._article));
   }
 }
 
