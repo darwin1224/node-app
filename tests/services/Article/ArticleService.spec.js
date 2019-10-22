@@ -22,4 +22,21 @@ describe('Article Service tests', () => {
       expect(res).to.equal('Hello World');
     });
   });
+
+  describe('Get article by id test', () => {
+    it('should return not null', async () => {
+      const res = await article.getArticleById(1);
+      expect(res).to.not.be.null;
+    });
+
+    it('should return type integer', async () => {
+      const res = await article.getArticleById(1);
+      expect(res).to.be.a('number');
+    });
+
+    it('should return 1', async () => {
+      const res = await article.getArticleById(1);
+      expect(res).to.equal(1);
+    });
+  });
 });
