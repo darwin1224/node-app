@@ -1,0 +1,8 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always"
+}
