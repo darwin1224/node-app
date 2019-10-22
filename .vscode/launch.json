@@ -16,6 +16,16 @@
       "restart": true,
       "internalConsoleOptions": "openOnSessionStart",
       "smartStep": true
-    } 
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Tests",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "test"
+      ],
+      "internalConsoleOptions": "openOnSessionStart"
+    }
   ]
 }
