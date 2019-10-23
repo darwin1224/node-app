@@ -6,10 +6,12 @@ COPY ./package.json ./
 
 COPY ./yarn.lock ./
 
-RUN yarn cache clean && yarn install
+RUN apk add --no-cache bash && \
+  yarn cache clean && \
+  yarn install
 
 COPY . .
 
 EXPOSE 3000
 
-CMD [ "yarn", "dev" ]
+CMD [ "./wait-for-it.sh", "database:3306", "--", "yarn", "dev" ]
