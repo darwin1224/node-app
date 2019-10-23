@@ -10,9 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       title_article: DataTypes.STRING,
       body_article: DataTypes.STRING,
-      created_at: DataTypes.DATE,
-      updated_at: DataTypes.DATE,
-      deleted_at: DataTypes.DATE,
     },
     {
       tableName: 'tbl_article',
