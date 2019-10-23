@@ -25,3 +25,5 @@ class DeleteFailedException extends Error {
     this.message = message;
   }
 }
+
+module.exports = DeleteFailedException;

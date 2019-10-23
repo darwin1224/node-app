@@ -25,3 +25,5 @@ class DataNotFoundException extends Error {
     this.message = message;
   }
 }
+
+module.exports = DataNotFoundException;

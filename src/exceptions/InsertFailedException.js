@@ -25,3 +25,5 @@ class InsertFailedException extends Error {
     this.message = message;
   }
 }
+
+module.exports = InsertFailedException;

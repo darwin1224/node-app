@@ -25,3 +25,5 @@ class UpdateFailedException extends Error {
     this.message = message;
   }
 }
+
+module.exports = UpdateFailedException;
