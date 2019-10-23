@@ -53,7 +53,7 @@ class ArticleService {
    * @returns {Promise<Array<number, number>>}
    */
   updateArticle(params, id) {
-    return this._article.findByPk(id).update(params);
+    return this._article.update(params, { where: { id_article: id } });
   }
 
   /**
