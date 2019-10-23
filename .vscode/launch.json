@@ -26,6 +26,17 @@
         "test"
       ],
       "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Debug Nodejs in Docker",
+      "port": 9229,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/var/www/html",
+      "protocol": "inspector",
+      "restart": true
     }
   ]
 }
