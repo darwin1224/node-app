@@ -24,6 +24,8 @@ services:
       - MYSQL_ROOT_USER=root
       - MYSQL_ROOT_PASSWORD=rahasia
       - MYSQL_DATABASE=node-app
+    volumes: 
+      - app:/var/lib/mysql
     ports: 
       - 3306:3306
     tty: true
@@ -60,6 +62,10 @@ services:
     restart: always
     networks: 
       - app
+
+volumes:
+  app:
+    driver: local
 
 networks:
   app:
