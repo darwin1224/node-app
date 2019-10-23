@@ -1,16 +1,28 @@
 'use strict';
 
+/** @typedef {import('sequelize')} Sequelize.Model */
+/** @typedef {import('../models/index.js')} db.Article */
+
 const { Model } = require('sequelize');
 const { Article } = require('../models/index.js');
 
 class ArticleService {
+  /**
+   * Constructor
+   *
+   * @returns {void}
+   */
+  constructor() {
+    this._article = Article;
+  }
+
   /**
    * Get all data
    *
    * @returns {Promise<Model>}
    */
   getAllArticle() {
-    return Article.findAll();
+    return this._article.findAll();
   }
 
   /**
@@ -20,7 +32,7 @@ class ArticleService {
    * @returns {Promise<Model>}
    */
   getArticleById(id) {
-    return Article.findByPk(id);
+    return this._article.findByPk(id);
   }
 
   /**
@@ -30,7 +42,7 @@ class ArticleService {
    * @returns {Promise<Model>}
    */
   insertArticle(params) {
-    return Article.create(params);
+    return this._article.create(params);
   }
 
   /**
@@ -41,7 +53,7 @@ class ArticleService {
    * @returns {Promise<Array<number, number>>}
    */
   updateArticle(params, id) {
-    return Article.findByPk(id).update(params);
+    return this._article.findByPk(id).update(params);
   }
 
   /**
@@ -51,7 +63,7 @@ class ArticleService {
    * @returns {Promise<number>}
    */
   deleteArticle(id) {
-    return Article.destroy({ where: { id_article: id } });
+    return this._article.destroy({ where: { id_article: id } });
   }
 }
 
