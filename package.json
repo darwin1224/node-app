@@ -7,7 +7,8 @@
     "start": "node ./src/app.js",
     "dev": "nodemon --exec node --inspect=localhost:9229 ./src/app.js",
     "test": "mocha ./tests/**/*.spec.js",
-    "test:cover": "nyc --reporter=text yarn test"
+    "test:cover": "nyc --reporter=text yarn test",
+    "migrate": "sequelize db:migrate"
   },
   "keywords": [],
   "author": "Global Permata System",
