@@ -3,24 +3,27 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('tbl_article', {
-      id: {
+      id_article: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      title_article: {
         type: Sequelize.STRING,
       },
-      body: {
+      body_article: {
         type: Sequelize.STRING,
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
+        type: Sequelize.DATE,
+      },
+      deleted_at: {
         type: Sequelize.DATE,
       },
     });
